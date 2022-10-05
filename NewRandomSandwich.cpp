@@ -182,7 +182,7 @@ void output() {
 
 int main() {
     srand(time(NULL));
-    welcome();
+    // welcome();
     userInput();
     userInputCalculations();
     output();
