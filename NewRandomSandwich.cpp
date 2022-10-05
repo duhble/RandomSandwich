@@ -1,7 +1,7 @@
 // Program Title: NewRandomSandwich
 // Program Description: This program asks the user what ingredients to put on their sandwich, and outputs a series of specialized ingredients according to the sandwich place "Which Wich?"
 // Program Author: Dylan Dover
-// Last Updated: 10-03-2022
+// Last Updated: 10-05-2022
 
 using namespace std;
 
@@ -182,6 +182,7 @@ void output() {
 
 int main() {
     srand(time(NULL));
+    welcome();
     userInput();
     userInputCalculations();
     output();
