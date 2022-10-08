@@ -16,23 +16,23 @@ using namespace std;
 
 const int COL1 = 20;
 
-int init, rand_meat, rand_sauce, rand_pepper, rand_toppings, rand_toppings1, rand_toppings2, rand_toppings3, rand_cheese, rand_seasoning, rand_bread;
-string ui_meat, ui_sauce, ui_peppers, ui_toppings, ui_cheese, ui_seasoning, ui_bread;
+int per, rand_meat, rand_sauce, rand_pepper, rand_toppings, rand_toppings1, rand_toppings2, rand_toppings3, rand_cheese, rand_seasoning, rand_bread;
+string ui_meat, ui_sauce, ui_peppers, ui_toppings, ui_cheese, ui_seasoning, ui_bread, ui_repeat;
 
 string yes = "yes";
 string no = "no";
 
 void startup() {
 	do {
-		if (init < 100) {
-			init++;
+		if (per < 100) {
+			per++;
 		}
 		system("CLS");
 
 		cout << "DEVELOPMENT VERSION!" << endl;
 
-		cout << "Loading Program: " << init << "%" << endl;
-	} while (init < 100);
+		cout << "Loading Program: " << per << "%" << endl;
+	} while (per < 100);
 	Sleep(3000); system("CLS");
 }
 
@@ -121,6 +121,7 @@ void calculations() {
 	if (ui_cheese == "yes") { rand_cheese = rand() % 4 + 1; }
 	if (ui_seasoning == "yes") { rand_seasoning = rand() % 2 + 1; }
 	if (ui_bread == "yes") { rand_bread = rand() % 2 + 1; }
+	ui_repeat == " ";
 }
 
 void output() {
@@ -205,8 +206,31 @@ void output() {
 	cout << endl << "Sandwich Code: " << rand_meat << rand_sauce << rand_pepper << rand_toppings1 << rand_toppings2 << rand_toppings3 << rand_cheese << rand_seasoning << rand_bread << endl;
 }
 
+void repeat() {
+	do {
+		cout << endl << "Do you want to make another sandwich? "; cin >> ui_repeat;
+		if (ui_repeat != "no" && ui_repeat != "yes") {
+			cout << endl << "Invalid Input! Answer with \"yes\" or \"no\".";
+		}
+	} while (ui_repeat != "no" && ui_repeat != "yes");
+	
+}
+
 int main() {
-	userInput();
-	calculations();
-	output();
+	// startup();
+	// howTo();
+	do {
+		userInput();
+		calculations();
+		output();
+		repeat();
+		if (ui_repeat != "no" && ui_repeat != "yes") {
+			cout << endl << "Invalid Input! Answer with \"yes\" or \"no\".";
+		}
+	} while (ui_repeat == "yes");
+	if (ui_repeat == "no") {
+		cout << "Enjoy Your Sandwich!" << endl;
+	}
+	
+	return 0;
 }
