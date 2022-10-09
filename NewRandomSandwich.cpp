@@ -1,6 +1,3 @@
-// Title: RandomSandwich
-// Description: This program asks the user what ingredients to put on their sandwich, and outputs a series of specialized ingredients according to the sandwich place "Which Wich?"
-// Author: Dylan Dover
 // Last Updated: 10-08-2022
 
 using namespace std;
@@ -267,9 +264,15 @@ void file() {
 	outData.close();
 }
 
-int main() {
+void thanks() {
+	cout << fixed << endl;
+	cout << "Credits:" << endl;
+	cout << setw(25) << left << "Lead Developer:" << "Dylan Dover" << endl;
+	cout << setw(25) << left << "Special Thanks:" << "Andrew and Hayden" << endl;
+}
 
-	// welcome();
+int main() {
+	welcome();
 	howTo();
 	do {
 		do {
@@ -286,5 +289,6 @@ int main() {
 			cout << endl << "Enjoy Your Sandwich!" << endl;
 		}
 	} while (ui_repeat == " ");
+	thanks();
 	end();
 }
